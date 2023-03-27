@@ -5,7 +5,7 @@ from .models import Student
 
 
 def students_list(request):
-    object_list = Student.objects.all().order_by('name')
+    object_list = Student.objects.all().order_by('group')
     template = 'school/students_list.html'
     context = {
         'object_list': object_list
@@ -17,7 +17,8 @@ def students_list(request):
 
     return render(request, template, context)
 
-
+# {% for teacher in student.teachers.all %}
+# <p>{{ teacher.name }}: {{ teacher.subject }}
 # {% for student in object_list %}
 #     <li>{{ student.name }} {{ student.group }} <br> Преподаватель: {{ student.teacher.name }} {{ student.teacher.subject }}</li>
 #   {% endfor %}
